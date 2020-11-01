@@ -52,7 +52,7 @@ const prepareCustomNick = (player) => {
     if (player.subscription == "iron" || player.subscription == "emerald") text = `&a${player.nick}`
     if (player.subscription == "gold") text = `&6${player.nick}`
     if (player.subscription == "diamond") text = player.customNick || player.nick
-
+    console.log(text)
     text = text.replace(/&0/gi, '</span><span class="c-1">');
     text = text.replace(/&1/gi, '</span><span class="c-2">');
     text = text.replace(/&2/gi, '</span><span class="c-3">');
