@@ -11,7 +11,7 @@ const subscriptionKeys = [
     {key: 'diamond', name: 'Diamentowy'},
     {key: 'emerald', name: 'Emeraldowy'},
     {key: 'gold', name: 'Złoty'},
-    {key: 'iron', name: 'Zelazny'},
+    {key: 'iron', name: 'Żelazny'},
 ]
 
 
