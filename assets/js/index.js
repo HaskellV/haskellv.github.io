@@ -32,7 +32,7 @@ const setInfo = (data) => {
     noPlayer.style.display = data ? 'none' : 'block'
     head.src = `https://minotar.net/helm/${data?.nick || "connor4312"}/120`
     subscription.textContent = data ? subscriptionKeys.find(key => key.key == data.subscription.key).name : "???"
-    nick.innerHTML = prepareCustomNick({'subscription': data?.subscription.key, nick: data?.nick, customNick: data?.customNick})
+    nick.innerHTML = prepareCustomNick({'subscription': data?.subscription.key, nick: data?.nick, customNick: data?.customNick}) || '???'
     time.textContent = data?.logged ? moment(data?.logged).utc().format('DD/mm/YYYY HH:mm:ss') : data?.nick ? "Nigdy" : "???"
 
     subscriptionKeys.forEach(item => {
