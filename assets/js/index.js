@@ -68,6 +68,9 @@ const prepareCustomNick = (text) => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    if(window.location.hash) search.value = window.location.hash.substring(1)
-    search.dispatchEvent(new Event('input') || document.createEvent("HTMLEvents").initEvent('input', false, true))
+    if(window.location.hash) {
+        search.value = window.location.hash.substring(1)
+        search.dispatchEvent(new Event('input') || document.createEvent("HTMLEvents").initEvent('input', false, true))
+    }
+
 })
