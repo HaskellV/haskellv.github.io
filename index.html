@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SkriptStats.pl - statystyki serwera mc.skript.pl!</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/colors.css">
+</head>
+<body>
+    <div class="container">
+        <section class="search-bar">
+            
+            <input id="search" class="search-bar_input" type="text" placeholder="Nick (np. Libter)">
+
+        </section>
+        <section class="user-info">
+            <div class="blur"><div id="spinner"></div></div>
+
+            <img id="img-head" src="https://minotar.net/helm/connor4312/120" alt="Głowa gracza" width="120">
+            <p id="noPlayerFound">BRAK GRACZA O PODANYM NICKU</p>
+            <div class="user-info_details">
+                <div class="user-info_details_item user-info_details_item-abonament"><p class="user-info_details_item-header">ABONAMENT</p> <p id="text-subscription" class="user-info_details_item-caption abonament-iron">???</p></div>
+                <div class="user-info_details_item user-info_details_item-nick"><p class="user-info_details_item-header">NICK</p> <p id="text-nick" class="user-info_details_item-caption">???</p></div>
+                <div class="user-info_details_item user-info_details_item-time"><p class="user-info_details_item-header">ZALOGOWANY</p> <p id="text-time" class="user-info_details_item-caption">???</p></div>
+            </div>
+
+
+        </section>
+    </div>
+
+    <script src="assets/js/debounce.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
