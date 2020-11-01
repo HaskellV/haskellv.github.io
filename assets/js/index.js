@@ -29,11 +29,12 @@ const handleInput = (event) => {
 }
 
 const setInfo = (data) => {
+    console.log(moment(data.logged))
     noPlayer.style.display = data ? 'none' : 'block'
     head.src = `https://minotar.net/helm/${data?.nick || "connor4312"}/120`
     subscription.textContent = data ? subscriptionKeys.find(key => key.key == data.subscription.key).name : "???"
     nick.innerHTML = prepareCustomNick(data?.customNick || "") || data?.nick || "???"
-    time.textContent = data?.logged ? (new Date(data?.logged)).toLocaleString('pl-pl') : data?.nick ? "Nigdy" : "???"
+    time.textContent = data?.logged ? moment(data?.logged).utc().format('DD/mm/YYYY HH:mm:ss') : data?.nick ? "Nigdy" : "???"
 
     subscriptionKeys.forEach(item => {
         subscription.classList.remove(`abonament-${item.key}`)
