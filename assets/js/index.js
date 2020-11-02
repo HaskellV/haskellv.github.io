@@ -52,7 +52,6 @@ const setInfo = (data, fData) => {
     data?.subscription.key ? subscription.classList.add(`abonament-${data.subscription.key || 'iron'}`) : ''
     blur.style.display = 'none'
 
-    console.log(fData, fData?.current.length != 0)
     if(fData?.current.length != 0){
         friendsSection.style.display = 'block'
     }
@@ -73,7 +72,7 @@ const prepareCustomNick = (player) => {
     if (player.subscription == "iron" || player.subscription == "emerald" || player.subscription == "friend") text = `&3${player.nick}`
     if (player.subscription == "gold") text = `&6${player.nick}`
     if (player.subscription == "diamond") text = player.customNick || player.nick
-    console.log(text);
+
     text = text.replace(/&0/gi, '</span><span class="c-1">');
     text = text.replace(/&1/gi, '</span><span class="c-2">');
     text = text.replace(/&2/gi, '</span><span class="c-3">');
