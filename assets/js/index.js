@@ -5,6 +5,8 @@ const time = document.querySelector('#text-time')
 const search = document.querySelector('#search')
 const blur = document.querySelector(".blur")
 const noPlayer = document.querySelector("#noPlayerFound")
+const friendsContainer = document.querySelector("#friends-container")
+const friendsSection = document.querySelector("#friends-section")
 
 
 const subscriptionKeys = [
@@ -21,7 +23,11 @@ const handleInput = (event) => {
     fetch(`https://mc.skript.pl/api/player/${event.target.value}?by=nick`)
         .then(response => response.json())
         .then(data => {
-            setInfo(data)
+            fetch(`https://mc.skript.pl/api/player/${event.target.value}/friends?by=nick`)
+                .then(fResponse => fResponse.json())
+                .then(fData => {
+                    setInfo(data, fData)
+                })
         }).catch(err => {
             
             setInfo()
@@ -29,8 +35,12 @@ const handleInput = (event) => {
         })
 }
 
-const setInfo = (data) => {
+const setInfo = (data, fData) => {
     noPlayer.style.display = data ? 'none' : 'block'
+    friendsContainer.innerHTML = ""
+    friendsSection.style.display = 'none'
+
+
     head.src = `https://minotar.net/helm/${data?.nick || "connor4312"}/120`
     subscription.textContent = data ? subscriptionKeys.find(key => key.key == data.subscription.key).name : "???"
     nick.innerHTML = prepareCustomNick({'subscription': data?.subscription.key, nick: data?.nick, customNick: data?.customNick}) || '???'
@@ -41,6 +51,17 @@ const setInfo = (data) => {
     })
     data?.subscription.key ? subscription.classList.add(`abonament-${data.subscription.key || 'iron'}`) : ''
     blur.style.display = 'none'
+
+    console.log(fData, fData?.current.length != 0)
+    if(fData?.current.length != 0){
+        friendsSection.style.display = 'block'
+    }
+
+    fData?.current.forEach(friend => {
+        const img = document.createElement('img')
+        img.setAttribute('src', `https://minotar.net/helm/${friend?.friend?.nick}/32`)
+        friendsContainer.append(img)
+    })
 }
 
 search.addEventListener('input', debounce(handleInput, 1500))
