@@ -27,6 +27,10 @@ body{
     padding: 7px;
 }
 
+.search-bar_input::placeholder{
+    color: rgb(163, 163, 163)
+}
+
 .user-info{
     position: relative;
     margin: 25px 2.5%;
