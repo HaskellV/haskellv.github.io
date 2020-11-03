@@ -27,7 +27,7 @@ const handleInput = (event) => {
                 .then(fResponse => fResponse.json())
                 .then(fData => {
                     setInfo(data, fData)
-                })
+                }).catch(err => { setInfo(null ,null) })
         }).catch(err => {
             
             setInfo()
@@ -52,7 +52,7 @@ const setInfo = (data, fData) => {
     data?.subscription.key ? subscription.classList.add(`abonament-${data.subscription.key || 'iron'}`) : ''
     blur.style.display = 'none'
 
-    if(fData?.current.length != 0){
+    if(fData?.current.length > 0 || typeof fData?.current != 'undefined'){
         friendsSection.style.display = 'flex'
     }
 
