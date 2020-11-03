@@ -83,6 +83,26 @@ body{
     justify-content: center;
 }
 
+#friends-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#friends-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#friends-container div {
+    position: relative;
+}
+
+#friends-container div img{
+    margin: 0 3px;
+}
+
 #noPlayerFound{
     display: none;
 }
@@ -95,6 +115,26 @@ body{
     height: 80px;
     animation: spin 0.7s linear infinite;
 }
+
+.tooltip{
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    left: -40px;
+    min-width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 3px;;
+    border-radius: 6px;
+
+    z-index: 10;
+}
+
+.tooltip_trigger:hover .tooltip{
+    visibility: visible;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

@@ -53,13 +53,24 @@ const setInfo = (data, fData) => {
     blur.style.display = 'none'
 
     if(fData?.current.length != 0){
-        friendsSection.style.display = 'block'
+        friendsSection.style.display = 'flex'
     }
 
     fData?.current.forEach(friend => {
+        const div = document.createElement('div')
+        div.classList += "tooltip_trigger"
+
         const img = document.createElement('img')
         img.setAttribute('src', `https://minotar.net/helm/${friend?.friend?.nick}/32`)
-        friendsContainer.append(img)
+
+        const span = document.createElement('span')
+        span.classList += 'tooltip'
+        span.textContent = friend?.friend?.nick
+
+        div.append(img)
+        div.append(span)
+
+        friendsContainer.append(div)
     })
 }
 
