@@ -20,10 +20,10 @@ const subscriptionKeys = [
 
 const handleInput = (event) => {
     blur.style.display = 'flex'
-    fetch(`https://mc.skript.pl/api/player/${event.target.value}?by=nick`)
+    fetch(`https://api.utopiamc.pl/player/${event.target.value}?by=nick`)
         .then(response => response.json())
         .then(data => {
-            fetch(`https://mc.skript.pl/api/player/${event.target.value}/friends?by=nick`)
+            fetch(`https://api.utopiamc.pl/player/${event.target.value}/friends?by=nick`)
                 .then(fResponse => fResponse.json())
                 .then(fData => {
                     setInfo(data, fData)
